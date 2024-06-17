@@ -27,6 +27,7 @@ class CRenderD3D
 {
 public:
   void Init(void* pContext);
+  void ClearColor();
   void DrawQuad(TRenderVertex* verts);
   void Begin(void);
   void Release(void);
