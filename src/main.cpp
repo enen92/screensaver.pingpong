@@ -206,6 +206,17 @@ void CRenderD3D::Begin(void)
 #endif
 }
 
+void CRenderD3D::ClearColor()
+{
+#ifdef WIN32
+  ID3D11RenderTargetView* renderTargetView;
+  m_pContext->OMGetRenderTargets(1, &renderTargetView, nullptr);
+  float clearColor[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
+  m_pContext->ClearRenderTargetView(renderTargetView, clearColor);
+  SAFE_RELEASE(renderTargetView);
+#endif
+}
+
 void CRenderD3D::DrawQuad(TRenderVertex* verts)
 {
 #ifdef WIN32

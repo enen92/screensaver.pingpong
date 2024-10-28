@@ -149,6 +149,7 @@ bool CPingPong::Draw(CRenderD3D* render)
 
   DisableShader();
 #else
+  render->ClearColor();
   render->DrawQuad(&vert[0]);
   render->DrawQuad(&vert[4]);
   render->DrawQuad(&vert[8]);
